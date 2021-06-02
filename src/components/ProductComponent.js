@@ -4,8 +4,10 @@ import { useSelector } from "react-redux";
 
 const ProductComponent = () => {
   const products = useSelector((state) => state.allProducts.products);
+
   const renderList = products.map((product) => {
     const { id, title, image, price, category } = product;
+
     return (
       <div className="four wide column" key={id}>
         <Link to={`/product/${id}`}>
@@ -16,7 +18,7 @@ const ProductComponent = () => {
               </div>
               <div className="content">
                 <div className="header">{title}</div>
-                <div className="meta price">$ {price}</div>
+                <div className="meta price">&#8377; {price}</div>
                 <div className="meta">{category}</div>
               </div>
             </div>
@@ -25,7 +27,7 @@ const ProductComponent = () => {
       </div>
     );
   });
-  return <>{renderList}</>;
+  return <> {renderList.length === 0 ? <div>Loading...</div> : renderList}</>;
 };
 
 export default ProductComponent;
