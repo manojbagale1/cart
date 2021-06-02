@@ -1,11 +1,10 @@
 import React from "react";
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setProducts } from "../redux/actions/productsActions";
-import ProductComponent from "./ProductComponent";
+import ProductComponent from "../components/ProductComponent";
 
 const ProductPage = () => {
-  const products = useSelector((state) => state.allProducts.products);
   const dispatch = useDispatch();
 
   const fetchProducts = async () => {
